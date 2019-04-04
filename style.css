@@ -1,0 +1,21 @@
+#checkBanner{
+    height: 400px;
+    border: 2px solid black;
+}
+
+#checkBanner > h1{
+    font-size: 10em;
+    vertical-align: middle;
+}
+
+.my-row{
+    height: 400px;
+}
+
+#checkBanTxt{
+    font-size: 12em;
+}
+
+#checkBan{
+    border: 2px solid black;
+}
