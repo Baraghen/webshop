@@ -1,0 +1,100 @@
+{
+    "items":
+    [
+        {
+            "title":"WHEN WE ALL FALL ASLEEP, WHERE DO WE GO",
+            "artist": "Billie Eilish",
+            "year": 2019,
+            "price": 259,
+            "art": "img/album/fall_asleep.jpg"
+        },
+        
+        {
+            "title":"Flower Boy",
+            "artist": "Tyler, The Creator",
+            "year": 2017,
+            "price": 179,
+            "art": "img/album/flower_boy.jpg"
+        },
+        
+        {
+            "title":"Currents",
+            "artist": "Tame Impala",
+            "year": 2015,
+            "price": 179,
+            "art": "img/album/currents.jpg"
+        },
+        
+        {
+            "title":"H.E.R.",
+            "artist": "H.E.R.",
+            "year": 2017,
+            "price": 199,
+            "art": "img/album/H.E.R.jpg"
+        },
+        
+        {
+            "title":"Everything You've Come To Expect (Deluxe Edition)",
+            "artist": "The Last Shadow Puppets",
+            "year": 2016,
+            "price": 359,
+            "art": "img/album/everythingyouvecometoexpect.jpg"
+        },
+        
+        {
+            "title":"IV",
+            "artist": "BADBADNOTGOOD",
+            "year": 2016,
+            "price": 179,
+            "art": "img/album/IV.jpg"
+        },
+        
+        {
+            "title":"For All We Know",
+            "artist": "Nao",
+            "year": 2016,
+            "price": 259,
+            "art": "img/album/forallweknow.jpg"
+        },
+        
+        {
+            "title":"The Bedlam in Goliath",
+            "artist": "The Mars Volta",
+            "year": 2008,
+            "price": 259,
+            "art": "img/album/thebedlamingoliath.jpg"
+        },
+        
+        {
+            "title":"MY WOMAN",
+            "artist": "Angel Olsen",
+            "year": 2016,
+            "price": 179,
+            "art": "img/album/MYWOMAN.jpg"
+        },
+        
+        {
+            "title":"6 Feet Beneath the Moon",
+            "artist": "King Krule",
+            "year": 2013,
+            "price": 179,
+            "art": "img/album/6feetbeneaththemoon.jpg"
+        },
+        
+        {
+            "title":"What Did You Expect from the Vaccines?",
+            "artist": "The Vaccines",
+            "year": 2011,
+            "price": 179,
+            "art": "img/album/whatdidyouexpectfromthevaccines.jpg"
+        },
+        
+        {
+            "title":"Goddess",
+            "artist": "BANKS",
+            "year": 2014,
+            "price": 259,
+            "art": "img/album/goddess.jpg"
+        }
+    ]
+}

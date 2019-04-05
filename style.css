@@ -1,6 +1,16 @@
-#checkBanner{
+.my-container{
+    padding: 0;
+}
+
+.my-row{
     height: 400px;
+    margin-bottom: 15px;
+    padding: 0px;
+}
+
+#checkBanner{
     border: 2px solid black;
+    margin: 0px;
 }
 
 #checkBanner > h1{
@@ -8,14 +18,51 @@
     vertical-align: middle;
 }
 
-.my-row{
-    height: 400px;
-}
-
 #checkBanTxt{
     font-size: 12em;
 }
 
-#checkBan{
+#store li{
+    font-size: 16px;
+    text-align: center;
+    list-style-type: none;
+}
+
+#store ul{
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+#store div{
+    margin: 10px 0px;
+}
+
+#checkOutBtn{
+    margin: 25px 0 50px;
+}
+
+.cartStyle{
     border: 2px solid black;
+    border-top: none;
+    margin: 0;
+    padding: 15px 0px;
+}
+
+.cartStyle > div {
+    padding: 15px 0px;
+}
+
+#cartList li{
+    font-size: 12px;
+    text-align: center;
+    list-style-type: none;
+}
+
+#cartList ul{
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+#checkForm{
+    padding: 15px 0px;
 }
