@@ -4,15 +4,16 @@ $.getJSON("items.json", function(data) {
     
     skivor = data.items;
     var divRow = "<div class=\"row\">";
-    var divCol  = "<div class=\"col-sm-4 col-md-4\">";
     var divClose= "</div>";
     var divUl = "<ul>";
     var divUlClose = "</ul>";
     var row = "";
     var count = 0;
+    var rowCount = 0;
     let store = $("#store");
     
     skivor.forEach(function(obj, index) {
+        var divCol  = "<div class=\"col-sm-4 col-md-4\" id=\""+index+"\">";
         if(count === 0){
             row = divRow;   
         }
@@ -26,7 +27,12 @@ $.getJSON("items.json", function(data) {
             var div = divCol+divUl+art+title+artist+year+price+divUlClose+btn+divClose;
             row += div;
             count++
-            if(count === 3){
+            rowCount++
+            if(rowCount === skivor.length){
+                row += divClose;
+                store.append(row);
+            }
+            else if(count === 3){
                 row += divClose;
                 store.append(row);
                 count = 0;
@@ -35,23 +41,32 @@ $.getJSON("items.json", function(data) {
 
 });
 
-var items = [];
-
 function addBtn(id){
-    items.push(id);
-    localStorage.setItem("addedItems", JSON.stringify(items));
+    if(localStorage.getItem(id) === null){
+        localStorage.setItem(id, 1)
+    }
+    else{
+        var antal = JSON.parse(localStorage.getItem(id));
+        antal++
+        localStorage.setItem(id, antal);
+    }
 }
 
-var storedItems = JSON.parse(localStorage.getItem("addedItems"));
 
-function checkOut(){
-    storedItems = JSON.parse(localStorage.getItem("addedItems"));
+
+var items = [];
+function getItems(){
+    for(var i = 0; i < localStorage.length; i++){
+        var itemObj = {};
+        itemObj["key"] = localStorage.key(i);
+        itemObj["value"] = localStorage.getItem(localStorage.key(i));
+        items.push(itemObj)
+    }
 }
 
 function clearCart(){
     localStorage.clear();
     items = [];
-    storedItems = [];
     cart.empty();
 }
 
@@ -64,24 +79,33 @@ function loadCart(){
     var divUlClose = "</ul>";
     var divRow = "<div class=\"row\">";
     
-    storedItems.forEach(function(id) {
-        var divCol  = "<div id=\"itemdiv"+id+"\" class=\"col-sm-12 col-md-12\">";
-        var title = "<li>"+skivor[id].title+"</li>";
-        var price = "<li>"+"<strong>Price</strong>: "+skivor[id].price+"</li>";
-        var btn = "<button type=\"button\" class=\"btn btn-outline-dark mx-auto d-block\" onclick=\"removeItem("+id+")\">X</button>";
-        total += skivor[id].price;
-        var div = divRow+divCol+divUl+title+price+divUlClose+btn+divClose+divClose;
+    items.forEach(function(id) {
+        var divCol  = "<div id=\"itemdiv"+id.key+"\" class=\"col-sm-12 col-md-12\">";
+        var title = "<li>"+skivor[id.key].title+"</li>";
+        var antal = "<li><input name=\""+id.key+"\" onchange=\"updateItems(this.value, this.name)\" class=\"form-control\" type=\"number\" value=\""+id.value+"\"> st à "+skivor[id.key].price+" kr";
+        var btn = "<button type=\"button\" class=\"btn btn-outline-dark mx-auto d-block\" onclick=\"removeItem("+id.key+")\">X</button>";
+        total += skivor[id.key].price*id.value;
+        var div = divRow+divCol+divUl+title+antal+divUlClose+btn+divClose+divClose;
 
         cart.append(div);
     })
     cart.append(divRow+"<div class=\"col-sm-12 col-md-12 text-center\"<h5 id=\"totalTxt\">Total: "+total+" SEK</h5>"+divClose+divClose);
 }
 
+function updateItems(value, name){
+    localStorage.setItem(name, value)
+    total = 0;
+    for(var i = 0; i < localStorage.length; i++){
+        total += skivor[localStorage.key(i)].price*localStorage.getItem(localStorage.key(i));
+    }
+    document.getElementById("totalTxt").innerHTML = "Total: "+total;
+}
+
 function removeItem(id){
     $("#itemdiv"+id).remove();
-    storedItems.splice(storedItems.indexOf(id), 1);
-    localStorage.setItem("addedItems", JSON.stringify(storedItems));
-    total = total-skivor[id].price;
+    items.splice(items.findIndex(x => x.key == id), 1);
+    total = total-(skivor[id].price*localStorage.getItem(id));
+    localStorage.removeItem(id);
     document.getElementById("totalTxt").innerHTML = "Total: "+total;
 }
 
@@ -92,39 +116,53 @@ form.addEventListener("submit", function(event){
         event.preventDefault();
         event.stopPropagation();
     }
+    else if(form.checkValidity() === true){
+        $("#checkModal").modal("show");
+        event.preventDefault();
+        event.stopPropagation();
+    }
     form.classList.add("was-validated");
 })
 
 let modalItems = $("#modalItems");
 
-function loadModal(){
+function purchaseConfirm(){
     modalItems.empty();
+    items = [];
+    getItems();
+
     var divClose= "</div>";
     var divUl = "<ul>";
     var divUlClose = "</ul>";
     var divRow = "<div class=\"row\">";
     var row = "";
     var count = 0;
+    var rowCount = 0;
     
-    storedItems.forEach(function(id) {
+    items.forEach(function(id) {
         if(count === 0){
             row = divRow;   
         }
-        var divCol  = "<div id=\"itemdiv"+id+"\" class=\"col-sm-4 col-md-4\">";
-        var art = "<img src=\""+skivor[id].art+"\" class=\"mx-auto d-block\"/>";
-        var title = "<li>"+skivor[id].title+"</li>";
-        var price = "<li>"+"<strong>Price</strong>: "+skivor[id].price+"</li>";
-        var btn = "<button type=\"button\" class=\"btn btn-outline-dark mx-auto d-block\" onclick=\"removeItem("+id+")\">Remove</button>";
-        var div = divCol+divUl+art+title+price+btn+divUlClose+divClose;
+        var divCol  = "<div id=\"itemdiv"+id.key+"\" class=\"col-sm-4 col-md-4\">";
+        var art = "<img src=\""+skivor[id.key].art+"\" class=\"mx-auto d-block\"/>";
+        var title = "<li>"+skivor[id.key].title+"</li>";
+        var artist = "<li>"+"Artist: "+skivor[id.key].artist+"</li>";
+        var price = "<li>"+id.value+" st à "+skivor[id.key].price+" SEK</li>";
+        var div = divCol+divUl+art+title+artist+price+divUlClose+divClose;
 
         row += div;
         count++
-        if(count === 3){
+        rowCount++
+        if(rowCount === items.length){
+            row += divClose;
+            modalItems.append(row);
+        }
+        else if(count === 3){
             row += divClose;
             modalItems.append(row);
             count = 0;
         }
 
     })
-    modalItems.append("<h5 id=\"totalTxt\" class=\"text-center\">Total: "+total+" SEK</h5>");
+    modalItems.append("<h5 id=\"totalTxt\" class=\"text-center\">Tack för ditt köp!</h5>");    
 }

@@ -6,19 +6,20 @@
     <link rel="stylesheet" href="style.css">
     <title>Checkout</title>
 </head>
-<body onload="loadCart()">
+<body onload="getItems(); loadCart()">
     <div class="container my-container">
         <div id="checkBanner" class="row my-row align-items-center">
             <div class="col-xs-12 col-lg-12">
-                <h1 id="checkBanTxt" class="text-center">Checkout</h1>
+                <!-- <h1 id="checkBanTxt" class="text-center">Checkout</h1> -->
+                <img src="img/banner/check.png" alt="">
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div id="checkForm" class="col-8">
+            <div class="col-md-9 col-sm-12">
                 <h4>Contact Information</h4>
-                <form class="needs-validation" novalidate>
+                <form id="formTest" onsubmit="purchaseConfirm()" class="needs-validation" novalidate>
                     <div class="form-row">
                         <div class="form-group col-md-12">
                         <input type="text" class="form-control" id="inputName" placeholder="Name" oninput="check(this)" required>
@@ -61,11 +62,11 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-outline-dark d-block" data-toggle="modal" data-target="#myModal" onclick="loadModal()">Proceed</button>
+                    <button type="submit" class="btn btn-outline-dark d-block">Purchase</button>
                 </form>
             </div>
 
-            <div class="col-4 cartStyle">
+            <div class="col-md-3 col-sm-12 cartStyle">
                 <h4 class="text-center">Cart</h4>
                 
                 <div id="cartList" class="col-12">
@@ -82,8 +83,7 @@
                 <a id="backBtn" class="btn btn-outline-dark mx-auto d-block btmbtn" href="index.html">Back</a></button>
             </div>
         </div>
-        <div class="modal" id="myModal">
-            <div class="modal-dialog">
+        <div class="modal" id="checkModal">
                 <div class="modal-content">
             
                 <!-- Modal Header -->
@@ -93,17 +93,17 @@
                 </div>
             
                 <!-- Modal body -->
-                <div id="modalItems" class="modal-body">
-                    
+                <div class="modal-body">
+                    <div id="modalItems" class="container">
+                    </div>
                 </div>
             
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Purchase</button>
+                    <a class="btn btn-danger text-center" href="index.html" onclick="clearCart()">Till Start</a>
                 </div>
             
                 </div>
-            </div>
         </div>
     </div>
 

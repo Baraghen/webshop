@@ -9,17 +9,11 @@
 }
 
 #checkBanner{
-    border: 2px solid black;
     margin: 0px;
 }
 
-#checkBanner > h1{
-    font-size: 10em;
-    vertical-align: middle;
-}
-
-#checkBanTxt{
-    font-size: 12em;
+#checkBanner div{
+    padding: 0px;
 }
 
 #store li{
@@ -42,9 +36,11 @@
 }
 
 .cartStyle{
-    border: 2px solid black;
+    border: 1px solid rgb(201, 201, 201);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
     border-top: none;
-    margin: 0;
+    margin: 0 0 5px;
     padding: 15px 0px;
 }
 
@@ -69,4 +65,9 @@
 
 #checkForm{
     padding: 15px 5px 0 0;
+}
+
+#modalItems li{
+    text-align: center;
+    list-style-type: none;
 }
