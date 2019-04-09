@@ -56,6 +56,7 @@ function addBtn(id){
 
 var items = [];
 function getItems(){
+    items = [];
     for(var i = 0; i < localStorage.length; i++){
         var itemObj = {};
         itemObj["key"] = localStorage.key(i);
@@ -67,13 +68,17 @@ function getItems(){
 function clearCart(){
     localStorage.clear();
     items = [];
+    cartList.empty();
     cart.empty();
 }
 
-let cart = $("#cartList");
+let cartList = $("#cartList");
+let cart = $("#modalItemsCart");
 var total = 0;
 
 function loadCart(){
+    cart.empty();
+    total = 0;
     var divClose= "</div>";
     var divUl = "<ul>";
     var divUlClose = "</ul>";
@@ -87,8 +92,10 @@ function loadCart(){
         total += skivor[id.key].price*id.value;
         var div = divRow+divCol+divUl+title+antal+divUlClose+btn+divClose+divClose;
 
+        cartList.append(div);
         cart.append(div);
     })
+    cartList.append(divRow+"<div class=\"col-sm-12 col-md-12 text-center\"<h5 id=\"totalTxt\">Total: "+total+" SEK</h5>"+divClose+divClose);
     cart.append(divRow+"<div class=\"col-sm-12 col-md-12 text-center\"<h5 id=\"totalTxt\">Total: "+total+" SEK</h5>"+divClose+divClose);
 }
 
@@ -98,7 +105,7 @@ function updateItems(value, name){
     for(var i = 0; i < localStorage.length; i++){
         total += skivor[localStorage.key(i)].price*localStorage.getItem(localStorage.key(i));
     }
-    document.getElementById("totalTxt").innerHTML = "Total: "+total;
+    document.getElementById("totalTxt").innerHTML = "Total: "+total+" SEK";
 }
 
 function removeItem(id){

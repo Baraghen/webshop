@@ -71,3 +71,15 @@
     text-align: center;
     list-style-type: none;
 }
+
+#checkLink{
+    margin: 0;
+}
+
+#storeBtnRow{
+    margin: 70px 0 30px;
+}
+
+#cartModalCheckout{
+    margin: 0;
+}
