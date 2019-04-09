@@ -46,7 +46,7 @@ function addBtn(id){
         localStorage.setItem(id, 1)
     }
     else{
-        var antal = JSON.parse(localStorage.getItem(id));
+        var antal = localStorage.getItem(id);
         antal++
         localStorage.setItem(id, antal);
     }
@@ -110,10 +110,9 @@ function updateItems(value, name){
 
 function removeItem(id){
     $("#itemdiv"+id).remove();
-    items.splice(items.findIndex(x => x.key == id), 1);
     total = total-(skivor[id].price*localStorage.getItem(id));
     localStorage.removeItem(id);
-    document.getElementById("totalTxt").innerHTML = "Total: "+total;
+    document.getElementById("totalTxt").innerHTML = "Total: "+total+" SEK";
 }
 
 var form = document.querySelector(".needs-validation");
