@@ -1,3 +1,6 @@
+
+// -Här hämtas data från JSON-filen och fyller butiken med produkter-
+
 var skivor = [];
 
 $.getJSON("items.json", function(data) {
@@ -41,6 +44,8 @@ $.getJSON("items.json", function(data) {
 
 });
 
+// -Funktionen som lägger till produkter i varukorgen och sparar info till localStorage-
+
 function addBtn(id){
     if(localStorage.getItem(id) === null){
         localStorage.setItem(id, 1)
@@ -52,7 +57,7 @@ function addBtn(id){
     }
 }
 
-
+// -Funktion för att spara ner data från localStorage till en array som används för att fylla varukorgen-
 
 var items = [];
 function getItems(){
@@ -65,12 +70,16 @@ function getItems(){
     }
 }
 
+// -Funktion för att rensa varukorgen-
+
 function clearCart(){
     localStorage.clear();
     items = [];
     cartList.empty();
     cart.empty();
 }
+
+// -Funktion för att fylla varukorgen på samma sätt som butiken fylls-
 
 let cartList = $("#cartList");
 let cart = $("#modalItemsCart");
@@ -99,6 +108,8 @@ function loadCart(){
     cart.append(divRow+"<div class=\"col-sm-12 col-md-12 text-center\"<h5 id=\"totalTxt\">Total: "+total+" SEK</h5>"+divClose+divClose);
 }
 
+// -Funktion för att uppdatera antalet av en vald produkt samt uppdatera totalpriset-
+
 function updateItems(value, name){
     localStorage.setItem(name, value)
     total = 0;
@@ -108,12 +119,16 @@ function updateItems(value, name){
     document.getElementById("totalTxt").innerHTML = "Total: "+total+" SEK";
 }
 
+// -Funktion för att ta bort en produkt från varukorgen-
+
 function removeItem(id){
     $("#itemdiv"+id).remove();
     total = total-(skivor[id].price*localStorage.getItem(id));
     localStorage.removeItem(id);
     document.getElementById("totalTxt").innerHTML = "Total: "+total+" SEK";
 }
+
+// -Validering av formuläret på checkout-sidan-
 
 var form = document.querySelector(".needs-validation");
 
@@ -129,6 +144,8 @@ form.addEventListener("submit", function(event){
     }
     form.classList.add("was-validated");
 })
+
+// -Funktion som fyller summeringsrutan med info om vad kund har köpt-
 
 let modalItems = $("#modalItems");
 
