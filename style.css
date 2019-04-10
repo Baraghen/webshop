@@ -43,13 +43,6 @@
     padding-bottom: 3px;
 }
 
-.cartStyle{
-    /* border: 1px solid rgb(201, 201, 201); */
-    border-top: none;
-    border-bottom: none;
-    /* padding: 15px; */
-}
-
 #cartList ul{
     padding: 0;
     margin: 0;
