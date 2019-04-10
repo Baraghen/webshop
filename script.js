@@ -91,13 +91,14 @@ function loadCart(){
     var divClose= "</div>";
     var divUl = "<ul>";
     var divUlClose = "</ul>";
+    var divRow = "";
     
     items.forEach(function(id) {
         var divRow = "<div class=\"row itemRow align-items-center cartItem"+id.key+"\">";
         var divColBtn = "<div class=\"col-sm-3 col-md-3\">";
         var divCol  = "<div class=\"col-sm-9 col-md-9\">";
         var title = "<li><strong>"+skivor[id.key].title+"</strong></li>";
-        var antal = "<li><input name=\""+id.key+"\" onchange=\"updateItems(this.value, this.name)\" class=\"form-control\" type=\"number\" value=\""+id.value+"\"> st à "+skivor[id.key].price+" kr";
+        var antal = "<li><input oninput=\"this.value = Math.abs(this.value)\" name=\""+id.key+"\" onchange=\"updateItems(this.value, this.name)\" class=\"form-control\" type=\"number\" min=\"1\" value=\""+id.value+"\"> st à "+skivor[id.key].price+" kr";
         var btn = "<button type=\"button\" class=\"btn btn-outline-dark mx-auto d-block\" onclick=\"removeItem("+id.key+")\">X</button>";
         total += skivor[id.key].price*id.value;
         var div = divRow+divCol+divUl+title+antal+divUlClose+divClose+divColBtn+btn+divClose+divClose;
