@@ -96,7 +96,7 @@ function loadCart(){
         var divRow = "<div class=\"row itemRow align-items-center cartItem"+id.key+"\">";
         var divColBtn = "<div class=\"col-sm-3 col-md-3\">";
         var divCol  = "<div class=\"col-sm-9 col-md-9\">";
-        var title = "<li>"+skivor[id.key].title+"</li>";
+        var title = "<li><strong>"+skivor[id.key].title+"</strong></li>";
         var antal = "<li><input name=\""+id.key+"\" onchange=\"updateItems(this.value, this.name)\" class=\"form-control\" type=\"number\" value=\""+id.value+"\"> st à "+skivor[id.key].price+" kr";
         var btn = "<button type=\"button\" class=\"btn btn-outline-dark mx-auto d-block\" onclick=\"removeItem("+id.key+")\">X</button>";
         total += skivor[id.key].price*id.value;

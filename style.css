@@ -39,15 +39,15 @@
     padding-right: 0;
 }
 
-.cartStyle{
-    border: 1px solid rgb(201, 201, 201);
-    border-top: none;
-    border-bottom: none;
-    padding: 15px;
+.itemRow li{
+    padding-bottom: 3px;
 }
 
-.cartStyle > div {
-    padding: 15px 0px;
+.cartStyle{
+    /* border: 1px solid rgb(201, 201, 201); */
+    border-top: none;
+    border-bottom: none;
+    /* padding: 15px; */
 }
 
 #cartList ul{
@@ -89,4 +89,8 @@
 
 .btmbtn{
     margin: 25px 0 50px;
+}
+
+#backBtn{
+    margin: 70px 0 50px;
 }
