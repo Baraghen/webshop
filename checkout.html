@@ -9,14 +9,14 @@
 <body onload="getItems(); loadCart()">
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div id="banner" class="col-12">
                 <img src="img/banner/check.png" alt="">
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-9">
+            <div class="col-sm-12 col-md-9">
                 
                 <!-- Formulär för kontaktinfo -->
 
@@ -64,22 +64,28 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-outline-dark d-block">Purchase</button>
+                    <div class="form-row justify-content-center">
+                        <div class="col-3">
+                            <button type="submit" class="btn btn-outline-dark d-block w-100">Purchase</button>
+                        </div>
+                    </div>
                 </form>
             </div>
 
             <div class="col-12 col-md-3 cartStyle">
                 <h4 class="text-center">Cart</h4>
-                
-                <!-- Denna div fylls med produkterna från varukorgen -->
-                <div id="cartList" class="col-12">
+                <div class="row">
+
+                    <!-- Denna div fylls med produkterna från varukorgen -->
+                    <div id="cartList" class="col-12">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-6">
+                        <button onclick="clearCart()" class="btn btn-outline-dark mx-auto d-block">Clear Cart</button>
+                    </div>
                 </div>
 
-            </div>
-        </div>
-        <div class="row justify-content-end">
-            <div class="col-2">
-                <button onclick="clearCart()" class="btn btn-outline-dark">Clear Cart</button>
             </div>
         </div>
         <div class="row justify-content-center">

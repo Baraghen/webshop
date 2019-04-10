@@ -1,8 +1,10 @@
+/* ***BANNER*** */
 
 #banner img{
     width: 100%;
 }
 
+/* ***BUTIKS PRODUKTER*** */
 
 #store li{
     font-size: 14px;
@@ -27,8 +29,10 @@
     margin: 15px 0;
 }
 
-.btmbtn{
-    margin: 25px 0 50px;
+/* ***VARUKORG*** */
+
+.itemRow{
+    margin: 5px -15px;
 }
 
 .cartStyle{
@@ -42,29 +46,30 @@
     padding: 15px 0px;
 }
 
-#cartList li{
+#cartList ul{
+    padding: 0;
+    margin: 0;
     font-size: 12px;
-    text-align: left;
     list-style-type: none;
 }
 
-#cartList ul{
+#modalItemsCart ul{
+    font-size: 12px;
+    list-style-type: none;
     padding: 0;
-    margin-bottom: 5px;
-}
-
-#cartList div{
-    margin: 5px 0;
-}
-
-#checkForm{
-    padding: 15px 5px 0 0;
+    margin: 0;
 }
 
 #modalItems li{
     text-align: center;
     list-style-type: none;
 }
+
+#checkForm{
+    padding: 15px 5px 0 0;
+}
+
+/* ***KNAPPAR*** */
 
 #checkLink{
     margin: 0;
@@ -76,4 +81,8 @@
 
 #cartModalCheckout{
     margin: 0;
+}
+
+.btmbtn{
+    margin: 25px 0 50px;
 }

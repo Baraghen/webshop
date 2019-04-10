@@ -66,7 +66,7 @@
             
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Summary</h4>
+                    <h4 class="modal-title">Cart</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
             
@@ -77,8 +77,13 @@
             
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <a id="cartModalCheckout" class="btn btn-outline-dark mx-auto d-block btmbtn" href="checkout.html">Checkout</a>
-                    <button onclick="clearCart()" class="btn btn-outline-dark mx auto d-block">Clear Cart</button>
+                    <div class="col-6">
+                        <a id="cartModalCheckout" class="btn btn-outline-dark mx-auto d-block" href="checkout.html">Checkout</a>
+                    </div>
+
+                    <div class="col-6">
+                        <button onclick="clearCart()" class="btn btn-outline-dark mx auto d-block w-100">Clear Cart</button>
+                    </div>
                 </div>
             
                 </div>
