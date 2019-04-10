@@ -192,5 +192,5 @@ function purchaseConfirm(){
         }
 
     })
-    modalItems.append("<h5 id=\"totalTxt\" class=\"text-center\">Tack för ditt köp!</h5>");    
+    modalItems.append("<h5 id=\"totalTxt\" class=\"text-center\">Total: "+total+" SEK<br>Tack för ditt köp!</h5>");    
 }
