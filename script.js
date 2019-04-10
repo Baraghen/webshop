@@ -106,8 +106,8 @@ function loadCart(){
         cartList.append(div);
         cart.append(div);
     })
-    cartList.append(divRow+"<div class=\"col-sm-12 col-md-12 text-center\"<h5 id=\"totalTxt\">Total: "+total+" SEK</h5>"+divClose+divClose);
-    cart.append(divRow+"<div class=\"col-sm-12 col-md-12 text-center\"<h5 id=\"totalTxt\">Total: "+total+" SEK</h5>"+divClose+divClose);
+    cartList.append(divRow+"<div class=\"col-sm-12 col-md-12 text-center\"<h5 id=\"totalTxt\"><strong>Total:</strong> "+total+" SEK</h5>"+divClose+divClose);
+    cart.append(divRow+"<div class=\"col-sm-12 col-md-12 text-center\"<h5 id=\"totalTxt\"><strong>Total:</strong> "+total+" SEK</h5>"+divClose+divClose);
 }
 
 // -Funktion för att uppdatera antalet av en vald produkt samt uppdatera totalpriset-
