@@ -7,16 +7,16 @@
     <title>Checkout</title>
 </head>
 <body onload="getItems(); loadCart()">
-    <div class="container my-container">
-        <div id="checkBanner" class="row my-row align-items-center">
-            <div class="col-xs-12 col-lg-12">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
                 <img src="img/banner/check.png" alt="">
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-9 col-sm-12">
+            <div class="col-12 col-md-9">
                 
                 <!-- Formulär för kontaktinfo -->
 
@@ -68,7 +68,7 @@
                 </form>
             </div>
 
-            <div class="col-md-3 col-sm-12 cartStyle">
+            <div class="col-12 col-md-3 cartStyle">
                 <h4 class="text-center">Cart</h4>
                 
                 <!-- Denna div fylls med produkterna från varukorgen -->
@@ -78,12 +78,12 @@
             </div>
         </div>
         <div class="row justify-content-end">
-            <div class="col-xs-4">
-                <button onclick="clearCart()" class="btn btn-outline-dark mx auto d-block">Clear Cart</button>
+            <div class="col-2">
+                <button onclick="clearCart()" class="btn btn-outline-dark">Clear Cart</button>
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-xs-4">
+            <div class="col-4">
                 <a id="backBtn" class="btn btn-outline-dark mx-auto d-block btmbtn" href="index.html">Back</a></button>
             </div>
         </div>
