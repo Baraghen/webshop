@@ -98,7 +98,7 @@ function loadCart(){
         var divColBtn = "<div class=\"col-sm-3 col-md-3\">";
         var divCol  = "<div class=\"col-sm-9 col-md-9\">";
         var title = "<li><strong>"+skivor[id.key].title+"</strong></li>";
-        var antal = "<li><input oninput=\"this.value = Math.abs(this.value)\" name=\""+id.key+"\" onchange=\"updateItems(this.value, this.name)\" class=\"form-control\" type=\"number\" min=\"1\" value=\""+id.value+"\"> st à "+skivor[id.key].price+" kr";
+        var antal = "<li><input oninput=\"this.value = Math.abs(this.value)\" name=\""+id.key+"\" onchange=\"updateItems(this.value, this.name)\" class=\"form-control\" type=\"number\" min=\"0\" value=\""+id.value+"\"> st à "+skivor[id.key].price+" kr";
         var btn = "<button type=\"button\" class=\"btn btn-outline-dark mx-auto d-block\" onclick=\"removeItem("+id.key+")\">X</button>";
         total += skivor[id.key].price*id.value;
         var div = divRow+divCol+divUl+title+antal+divUlClose+divClose+divColBtn+btn+divClose+divClose;
@@ -119,6 +119,9 @@ function updateItems(value, name){
         total += skivor[localStorage.key(i)].price*localStorage.getItem(localStorage.key(i));
     }
     document.getElementById("totalTxt").innerHTML = "Total: "+total+" SEK";
+    if(value == 0){
+        removeItem(name);
+    }
 }
 
 // -Funktion för att ta bort en produkt från varukorgen-
