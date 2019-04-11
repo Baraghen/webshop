@@ -86,6 +86,7 @@ let cart = $("#modalItemsCart");
 var total = 0;
 
 function loadCart(){
+    getItems();
     cart.empty();
     total = 0;
     var divClose= "</div>";
